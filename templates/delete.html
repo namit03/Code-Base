@@ -1,0 +1,68 @@
+{% extends 'base/layout.html'%}
+{% load static %} 
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+    <div class="alert {% if message.tags %}
+    alert-{{message.tags}} {% endif %}"
+    role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+{% endif %}    
+
+<div class="container">
+        <form actions=""
+        method="POST" class="mt-4">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="search" class="btn btn-info">
+    
+    
+        </form>
+</div>
+
+{% if result %}
+<ul>
+{% for r in result %}
+<ul class="list-unstyled">
+    <li class=h1>
+        {{ r.student_name}}
+    </li>
+    <li>
+        <a href='delete-student/{{r.id}}'>Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+<br><br><br>
+{% if result %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Student name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in result %}
+        <tr>
+            <th scope="row">{{r.id}}</th>
+            <td>{{r.student_name}}</td>
+            <td>{{r.department}}</td>
+            <td>
+                <a href="edit-student/{{r.id}}">Edit</a>
+                <a href="delete-student/{{r.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% endblock %}
