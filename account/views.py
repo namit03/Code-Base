@@ -18,7 +18,7 @@ def register(request):
             print(user_form.errors)
     else:
         user_form=UserRegisterForm()
-    return render(request,'auth/register.html',{'form':user_form,'registered':registered})
+    return render(request,'auth/signup.html',{'form':user_form,'registered':registered})
 
 def user_login(request):
     if request.method=='POST':
