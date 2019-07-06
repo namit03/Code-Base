@@ -30,8 +30,17 @@ def user_login(request):
                 login(request,user)
                 return redirect('/')
             else:
-                print("someone tried to login and failed")   
-                print("They used username:{} and password: {}.format") 
+                return HttpResponse("your")    
+        else:
+            print("someone tried to login and failed")   
+            print("They used username:{} and password: {}".format(username,password))
+            return HttpResponse("Invalid login")
+    else:
+        return render(request,'auth/login.html',{})
+
+def user_logout(request):
+    logout(request)
+    return redirect('/')         
     
 
 
