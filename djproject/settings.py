@@ -25,7 +25,7 @@ SECRET_KEY = '9*fc3-i9jz!)7&kg1hc@)q+s)jh!voz$1=m8c!a)8t$x&k)6n)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thawing-tundra-54269.herokuapp.com']
 
 
 # Application definition
