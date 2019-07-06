@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from home.views import home_view,contact,about,deletestudent,editstudent,createstudenty
+from home.views import home_view,contact,about,deletestudent,editstudent,createstudent
 from account.views import home_view,user_login,register,user_logout
 
 from home import views 
