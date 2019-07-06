@@ -75,12 +75,17 @@ WSGI_APPLICATION = 'djproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES ={
-#     'default':{
-#         'ENGINE':'django.db.backends.sqlite3',
-#         'NAME':os.path.join(BASE_DIR,'db.sqlite3'),
-#     }
-# }
+DATABASES ={
+    'default':{
+        'ENGINE':'django.db.backends.sqlite3',
+        'NAME':os.path.join(BASE_DIR,'db.sqlite3'),
+    }
+}
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
+
 
  #DATABASES = {
  #   'default': {
@@ -103,20 +108,16 @@ WSGI_APPLICATION = 'djproject.wsgi.application'
  #        'PORT':'5000',
 #     }
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'django_db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'viru@319',
-#         'HOST': 'localhost',
-#         'PORT':'5000',
-#     }
-# }
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-DATABASES['default']['CONN_MAX_AGE'] = 500
+#  DATABASES = {
+#      'default': {
+#          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#          'NAME': 'django_db',
+#          'USER': 'postgres',
+#          'PASSWORD': 'viru@319',
+#          'HOST': 'localhost',
+#          'PORT':'5000',
+#      }
+#  }
 
 
 # Password validation
