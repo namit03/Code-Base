@@ -24,7 +24,7 @@ urlpatterns = [
     path('',views.home_view),
     path('home/',include('home.urls')),
     path('admin/',admin.site.urls),
-    path('login/',user_login,name='login'),
+    path('login',user_login,name='login'),
     path('logout/',user_logout,name='logout'),
     path('register/',register,name='register'),
    # path('delete-student/<id>',deletestudent),
